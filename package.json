@@ -16,18 +16,14 @@
     "test": "sst bind -- vitest run"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jest": "^26.6.0",
-    "eslint-plugin-jsdoc": "^39.3.3",
-    "jest": "^28.1.3",
-    "prettier": "2.7.1",
-    "ts-jest": "^28.0.7",
-    "ts-node": "^10.9.1",
-    "typescript": "4.7.x"
+    "@serverless-stack/cli": "^1.18.2",
+    "@serverless-stack/node": "^1.18.2",
+    "@serverless-stack/resources": "^1.18.2",
+    "@tsconfig/node16": "^1.0.3",
+    "aws-cdk-lib": "2.50.0",
+    "sst": "^0.0.0-20221121200755",
+    "typescript": "^4.9.3",
+    "vitest": "^0.25.3"
   },
   "workspaces": [
     "src/domains",
