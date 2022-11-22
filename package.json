@@ -1,0 +1,31 @@
+{
+  "name": "sst-lamda-typscript-poc",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "sst start",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "sst bind -- vitest run"
+  },
+  "devDependencies": {
+    "@serverless-stack/cli": "^1.18.2",
+    "@serverless-stack/node": "^1.18.2",
+    "@serverless-stack/resources": "^1.18.2",
+    "@tsconfig/node16": "^1.0.3",
+    "aws-cdk-lib": "2.50.0",
+    "sst": "^0.0.0-20221121200755",
+    "typescript": "^4.9.3",
+    "vitest": "^0.25.2"
+  },
+  "workspaces": [
+    "src/domains",
+    "src/handlers",
+    "src/repositories",
+    "src/services",
+    "src/utils"
+  ]
+}
