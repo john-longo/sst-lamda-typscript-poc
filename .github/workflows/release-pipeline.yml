@@ -1,0 +1,34 @@
+# GitHub Action for release stages
+# See /docs/cicd.md for more information
+name: Release Deployment
+
+on:
+  push:
+    # Use the section for tag-based releases
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+  # FIXME: set to project pattern
+    # Use this section for branch-based releases
+    branches:  # FIXME: change if have different branch name(s)
+      - prod
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: us-east-1  # FIXME: set desired region
+  STAGE_NAME: prod
+
+jobs:
+  Build-And-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Install Dependencies
+        run: npm ci
+      - name: Code Tests
+        run: npm run analyze
+      - name: Deploy
+        run: npm run deploy
